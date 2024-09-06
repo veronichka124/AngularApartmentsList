@@ -1,0 +1,36 @@
+<section class="search">
+  <form>
+    <label for="search">Dynamic filtering</label>
+    <input
+      type="text"
+      placeholder="Filter by city"
+      name="search"
+      [(ngModel)]="search"
+      autocomplete="off"
+    />
+    <label for="search">Filter by pressing enter key</label>
+    <input
+      type="text"
+      placeholder="Filter by city"
+      #filter
+      name="search"
+      autocomplete="off"
+      (keydown.enter)="filterResults(filter.value)"
+    />
+  </form>
+</section>
+<section>
+  <p>Total homes: {{ totalHomes }}</p>
+</section>
+<section class="results">
+  <!-- Option 1 - using @for -->
+  <!-- @for (housingLocation of filteredLocationList; track housingLocation.id) {
+  <app-home-list-card [housingLocation]="housingLocation" />
+  } -->
+
+  <!-- Option 2 - using *ngFor -->
+  <app-home-list-card
+    *ngFor="let housingLocation of filteredLocationList; trackBy: trackByItems"
+    [housingLocation]="housingLocation"
+  />
+</section>

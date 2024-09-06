@@ -1,0 +1,15 @@
+<div>
+  <header>
+    <a routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page">
+      <img
+        class="brand-logo"
+        src="/assets/logo.svg"
+        alt="logo"
+        aria-hidden="true"
+      />
+    </a>
+    <div class="date">
+      {{ currentDateTime | date : "fullDate" | uppercase }}
+    </div>
+  </header>
+</div>
