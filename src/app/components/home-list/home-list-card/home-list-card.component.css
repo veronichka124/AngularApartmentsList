@@ -2,6 +2,7 @@
   background: var(--accent-color);
   border-radius: 30px;
   padding-bottom: 30px;
+  position: relative;
 }
 .listing-heading {
   color: var(--primary-color);
@@ -27,4 +28,32 @@ section.listing a {
 section.listing a::after {
   content: "\203A";
   margin-left: 5px;
+}
+.favorite-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  border-radius: 50%;
+  background-color: transparent;
+  padding: 5px;
+  cursor: pointer;
+  svg {
+    display: block;
+    fill: rgba(0, 0, 0, 0.5);
+    height: 24px;
+    width: 24px;
+    stroke: #fff;
+    stroke-width: 2;
+    overflow: visible;
+    &:hover {
+      fill: var(--primary-color);
+    }
+    &.active {
+      fill: var(--primary-color);
+    }
+  }
+  &:hover {
+    transform: scale(1.08);
+  }
 }
