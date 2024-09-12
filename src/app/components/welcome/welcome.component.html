@@ -6,6 +6,8 @@
       [src]="photoData.urls.regular"
       alt="{{ photoData.alt_description }}"
     />
+    } @else {
+    <div class="loading-image"></div>
     }
 
     <a routerLink="/home-list">

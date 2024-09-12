@@ -4,6 +4,7 @@ header {
   justify-content: space-between;
   padding: var(--content-padding);
   box-shadow: 0px 5px 25px var(--shadow-color);
+  max-height: var(--header-height);
 }
 .date {
   color: var(--primary-color);

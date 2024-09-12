@@ -1,0 +1,14 @@
+/* CSS */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.error-message {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--error-color);
+}

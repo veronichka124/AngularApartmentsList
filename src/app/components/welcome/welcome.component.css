@@ -52,6 +52,18 @@ section {
   left: 0px;
 }
 
+.loading-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  width: 100vw;
+  background-color: #e1e1e1;
+  border-radius: 10px;
+  transition: opacity 1s linear;
+  filter: blur(5px);
+}
+
 @media (min-width: 768px) {
   .button {
     padding: 13px 50px 13px;
@@ -70,5 +82,9 @@ section {
       display: flex;
       justify-content: center;
     }
+  }
+  .loading-image {
+    width: 600px;
+    height: 400px;
   }
 }

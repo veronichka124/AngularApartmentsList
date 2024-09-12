@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
@@ -29,6 +29,7 @@ export class HomeDetailsComponent {
 
   constructor(
     private housingService: HomeListService,
+    private router: Router,
     private route: ActivatedRoute,
     readonly dialog: MatDialog
   ) {
@@ -37,6 +38,10 @@ export class HomeDetailsComponent {
       .getHousingLocationById(housingLocationId)
       .then((location) => {
         this.housingLocation = location;
+      })
+      .catch((error) => {
+        this.router.navigate(['/home-list']);
+        console.error(error);
       });
   }
 
