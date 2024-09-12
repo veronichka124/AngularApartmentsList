@@ -2,6 +2,30 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.1.
 
+## Environment Variables
+
+To run this project, you will need to add the following environment variables
+
+### Adding Environment Variables
+
+1. **Create Environment Files:**
+   - In terminal run  ``` ng g environments ```
+
+2. **Define Environment Variables:**
+   - Open each environment file and define your environment variables.
+  ```typescript
+  // src/environments/environment.ts
+    export const environment = {
+    production: false,
+    unsplash: {
+      UNSPLASH_ACCESS_KEY: 'YOUR_ACCESS_KEY',
+      UNSPLASH_SECRET_KEY: 'YOUR_SECRET_KEY',
+      UNSPLASH_URL: 'https://api.unsplash.com',
+    },
+  };
+  
+  ```
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
