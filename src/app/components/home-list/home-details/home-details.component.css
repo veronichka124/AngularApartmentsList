@@ -22,16 +22,18 @@ article {
   float: right;
 }
 .listing-heading {
-  font-size: 48px;
+  font-size: 32px;
   font-weight: bold;
-  margin-bottom: 15px;
+  margin-bottom: 8px;
 }
 .listing-location::before {
   content: url("/assets/location-pin.svg") / "";
 }
 .listing-location {
-  font-size: 24pt;
+  font-size: 18px;
   margin-bottom: 15px;
+  display: flex;
+  align-items: center;
 }
 .listing-features > .section-heading {
   color: var(--secondary-color);
