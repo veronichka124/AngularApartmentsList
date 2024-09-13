@@ -8,5 +8,4 @@ footer {
   position: static;
   bottom: 0;
   background-color: var(--footer-color);
-  margin-top: 60px;
 }
