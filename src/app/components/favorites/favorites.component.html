@@ -1,5 +1,7 @@
 <div class="favorites">
   @for (location of favoriteLocations; track location.id) {
   <app-home-list-card [housingLocation]="location" />
+  } @empty {
+  <p class="empty-message">You have no favorite locations yet.</p>
   }
 </div>
