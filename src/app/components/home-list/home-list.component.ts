@@ -57,7 +57,6 @@ export class HomeListComponent implements OnInit {
   }
 
   filterResults(searchTerm: string) {
-    console.log(searchTerm);
     // Update the query parameter
     this.router.navigate([], {
       relativeTo: this.route,

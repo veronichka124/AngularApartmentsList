@@ -17,6 +17,7 @@ body {
   --content-padding: 20px 40px;
   --header-height: 90px;
   --full-height: calc(100vh - var(--header-height));
+  --footer-color: #fff;
 }
 
 button.primary {

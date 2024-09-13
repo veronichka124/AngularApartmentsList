@@ -1,26 +1,41 @@
 import { Injectable } from '@angular/core';
+import { HomeListCard } from '../types/homeListCard';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class GlobalStateService {
-  private favoriteLocationsIds: number[] = [];
+  private favoriteLocationsSubject = new BehaviorSubject<HomeListCard[]>([]);
+  favoriteLocations$ = this.favoriteLocationsSubject.asObservable();
 
-  addFavorite(id: number): void {
-    this.favoriteLocationsIds.push(id);
+  addFavorite(location: HomeListCard): void {
+    const currentFavorites = this.favoriteLocationsSubject.value;
+    this.favoriteLocationsSubject.next([...currentFavorites, location]);
   }
 
-  removeFavorite(id: number): void {
-    this.favoriteLocationsIds = this.favoriteLocationsIds.filter(
-      (locationId) => locationId !== id
+  removeFavorite(location: HomeListCard): void {
+    const currentFavorites = this.favoriteLocationsSubject.value;
+    this.favoriteLocationsSubject.next(
+      currentFavorites.filter((fav) => fav.id !== location.id)
     );
   }
 
-  isFavorite(id: number): boolean {
-    return this.favoriteLocationsIds.includes(id);
+  isFavorite(location: HomeListCard): boolean {
+    return this.favoriteLocationsSubject.value.some(
+      (fav) => fav.id === location.id
+    );
   }
 
-  getFavoriteLocationsIds(): number[] {
-    return this.favoriteLocationsIds;
+  getFavorites(): HomeListCard[] {
+    return this.favoriteLocationsSubject.value;
+  }
+  getFavoritesIds(): number[] {
+    return this.favoriteLocationsSubject.value.map((fav) => fav.id);
+  }
+
+  toggleFavorite(housingLocation: HomeListCard): void {
+    if (this.isFavorite(housingLocation)) this.removeFavorite(housingLocation);
+    else this.addFavorite(housingLocation);
   }
 }

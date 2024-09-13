@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { HomeListCard } from '../../../types/homeListCard';
 import { GlobalStateService } from '../../../services/global-state.service';
@@ -10,7 +10,7 @@ import { GlobalStateService } from '../../../services/global-state.service';
   templateUrl: './home-list-card.component.html',
   styleUrl: './home-list-card.component.css',
 })
-export class HomeListCardComponent {
+export class HomeListCardComponent implements OnInit {
   @Input() housingLocation!: HomeListCard; //non-null assertion operator
 
   isFavorite: boolean = false;
@@ -18,19 +18,11 @@ export class HomeListCardComponent {
   constructor(private globalStateService: GlobalStateService) {}
 
   ngOnInit(): void {
-    this.isFavorite = this.globalStateService.isFavorite(
-      this.housingLocation.id
-    );
+    this.isFavorite = this.globalStateService.isFavorite(this.housingLocation);
   }
 
   toggleFavorite() {
-    if (this.globalStateService.isFavorite(this.housingLocation.id)) {
-      this.globalStateService.removeFavorite(this.housingLocation.id);
-    } else {
-      this.globalStateService.addFavorite(this.housingLocation.id);
-    }
-    this.isFavorite = this.globalStateService.isFavorite(
-      this.housingLocation.id
-    );
+    this.globalStateService.toggleFavorite(this.housingLocation);
+    this.isFavorite = this.globalStateService.isFavorite(this.housingLocation);
   }
 }

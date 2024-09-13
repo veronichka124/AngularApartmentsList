@@ -23,12 +23,6 @@
   <p>Total homes: {{ totalHomes }}</p>
 </section>
 <section class="results">
-  <!-- Option 1 - using @for -->
-  <!-- @for (housingLocation of filteredLocationList; track housingLocation.id) {
-  <app-home-list-card [housingLocation]="housingLocation" />
-  } -->
-
-  <!-- Option 2 - using *ngFor -->
   <app-home-list-card
     *ngFor="let housingLocation of filteredLocationList; trackBy: trackByItems"
     [housingLocation]="housingLocation"

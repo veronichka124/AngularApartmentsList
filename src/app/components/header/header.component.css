@@ -12,3 +12,12 @@ header {
   padding: 5px 15px;
   border-radius: 10px;
 }
+.favoritesBtn {
+  background-color: transparent;
+  color: var(--primary-color);
+  padding: 5px 15px;
+  border: none;
+  cursor: pointer;
+  font-size: 22px;
+  letter-spacing: 1px;
+}

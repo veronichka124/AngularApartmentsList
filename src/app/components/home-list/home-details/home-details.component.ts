@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
@@ -11,7 +11,7 @@ import { TitleCasePipe } from '@angular/common';
 @Component({
   selector: 'app-home-details',
   standalone: true,
-  imports: [ReactiveFormsModule, MatCardModule, TitleCasePipe],
+  imports: [ReactiveFormsModule, MatCardModule, TitleCasePipe, RouterLink],
   templateUrl: './home-details.component.html',
   styleUrl: './home-details.component.css',
 })

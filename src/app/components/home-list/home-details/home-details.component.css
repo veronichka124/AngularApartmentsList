@@ -3,6 +3,14 @@ article {
   flex-direction: row-reverse;
   column-gap: 40px;
 }
+.back-link {
+  margin-bottom: 20px;
+  a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    margin-bottom: 40px;
+  }
+}
 .content {
   width: 60%;
 }

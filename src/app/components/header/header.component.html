@@ -7,7 +7,18 @@
       aria-hidden="true"
     />
   </a>
-  <div class="date">
-    {{ currentDateTime | date : "fullDate" | uppercase }}
+  <div>
+    <a
+      routerLink="/favorites"
+      routerLinkActive="active"
+      ariaCurrentWhenActive="page"
+    >
+      <button class="favoritesBtn">
+        <span>Favorites</span>
+      </button>
+    </a>
   </div>
+  <!-- <div class="date">
+    {{ currentDateTime | date : "fullDate" | uppercase }}
+  </div> -->
 </header>
